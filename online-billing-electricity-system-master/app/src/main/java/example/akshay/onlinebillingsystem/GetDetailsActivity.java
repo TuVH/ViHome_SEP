@@ -49,7 +49,7 @@ public class GetDetailsActivity extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         mainView = inflater.inflate(R.layout.activity_get_details, container, false);
 
-        ((HomeActivity) getActivity()).setActionBarTitle("Add Bill");
+        ((HomeActivity) getActivity()).setActionBarTitle("Thêm Hóa đơn");
 
         meterNoEditText = mainView.findViewById(R.id.get_meter_no);
         nameTextView = mainView.findViewById(R.id.dis_name);
@@ -71,7 +71,7 @@ public class GetDetailsActivity extends Fragment {
             public void onClick(View v) {
                 meterNo = meterNoEditText.getText().toString();
                 if (!meterNo.equals("")) {
-                    mDialog = ProgressDialog.show(mainView.getContext(), "Please Wait", "Searching Customer...", true);
+                    mDialog = ProgressDialog.show(mainView.getContext(), "Loading...", "Đang tìm kiếm...", true);
                     intMeterNo = Integer.parseInt(meterNo);
                     mBillInfo = database.getReference("Bill Info/" + meterNo);
                     fetchOldData();
@@ -97,7 +97,7 @@ public class GetDetailsActivity extends Fragment {
                             } else {
                                 mDialog.dismiss();
                                 meterNoEditText.requestFocus();
-                                meterNoEditText.setError("Customer Not Found");
+                                meterNoEditText.setError("Không tìm thấy khách hàng");
                                 //meterNoEditText.setText("");
                                 detailsLayout.setVisibility(View.GONE);
                             }
@@ -108,7 +108,7 @@ public class GetDetailsActivity extends Fragment {
                         }
                     });
                 } else {
-                    meterNoEditText.setError("Enter Valid meter Number");
+                    meterNoEditText.setError("Nhập lại số hóa đơn");
                 }
             }
         });
@@ -124,11 +124,11 @@ public class GetDetailsActivity extends Fragment {
                         final int final_amount = Calculation.calculation(used_unit, pendingAmount);
 
                         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
-                        alertDialogBuilder.setTitle("Confirm Dialog").setMessage("Current Unit: " + currentUnit +
-                                "\nUsed Unit: " + used_unit + "\nTotal Amount is: " + final_amount)
-                                .setPositiveButton("Submit", new DialogInterface.OnClickListener() {
+                        alertDialogBuilder.setTitle("Thông báo").setMessage("Đơn vị hiện tại: " + currentUnit +
+                                "\nĐơn vị sử dụng: " + used_unit + "\nTổng: " + final_amount)
+                                .setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
-                                        mDialog = ProgressDialog.show(mainView.getContext(), "Loading", "Please Wait...", true);
+                                        mDialog = ProgressDialog.show(mainView.getContext(), "Loading...", "Vui lòng chờ...", true);
                                         //getBillNo();
 
                                         final DatabaseReference billNoRef = database.getReference("/Data");
@@ -140,25 +140,25 @@ public class GetDetailsActivity extends Fragment {
                                                     billNo++;
                                                     billNoRef.child("bill_no").setValue(billNo);
 
-                                                    AddBill addBill = new AddBill(billNo, used_unit, final_amount, "pending");
+                                                    AddBill addBill = new AddBill(billNo, used_unit, final_amount, "Đang xử lý");
                                                     mBillInfo.child(labelOfBillInfo()).setValue(addBill).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                         @Override
                                                         public void onComplete(@NonNull Task<Void> task) {
                                                             if (task.isSuccessful()) {
                                                                 mDialog.dismiss();
-                                                                alertDialog("Success", "Bill Added");
+                                                                alertDialog("Thành công", "Hóa đơn đã được thêm");
                                                             } else {
                                                                 mDialog.dismiss();
-                                                                alertDialog("Error", "Please add bill again");
+                                                                alertDialog("lỗi", "Vui lòng thử lại");
                                                             }
                                                         }
                                                     });
                                                     mBillInfo.child("last_unit").setValue(currentUnit);
                                                     mBillInfo.child("pending_amount").setValue(final_amount);
                                                 } catch (NullPointerException e) {
-                                                    Log.d("Bill No: ", "null pointer exception");
+                                                    Log.d("Mã hóa đơn: ", "không có");
                                                     mDialog.dismiss();
-                                                    alertDialog("Error", "Please add bill again");
+                                                    alertDialog("Lỗi", "Vui lòng thử lại");
                                                 }
                                             }
 

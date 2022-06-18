@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
-            android:hint="Username"
+            android:hint="Tên tài khoản"
             android:inputType="textEmailAddress"/>
     </android.support.design.widget.TextInputLayout>
 
@@ -31,6 +31,6 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/button_background"
         android:minHeight="40dp"
-        android:text="Send Password" />
+        android:text="Xác nhận" />
 
 </RelativeLayout>

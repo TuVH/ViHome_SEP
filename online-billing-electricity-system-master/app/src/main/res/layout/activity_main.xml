@@ -13,20 +13,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/header"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:text="Log In"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        <ImageView
+            android:id="@+id/profile_pic"
+            android:layout_width="231dp"
+            android:layout_height="116dp"
+            android:contentDescription="@string/nav_header_desc"
+            android:paddingTop="@dimen/nav_header_vertical_spacing"
             app:layout_constraintBottom_toTopOf="@+id/login_username"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/logosep" />
 
         <EditText
             android:id="@+id/login_username"
@@ -38,7 +35,7 @@
             android:drawableStart="@drawable/ic_username"
             android:drawablePadding="5dp"
             android:ems="10"
-            android:hint="Username"
+            android:hint="Tài khoản"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -54,7 +51,7 @@
             android:drawableStart="@drawable/ic_lock_outline_black_24dp"
             android:drawablePadding="5dp"
             android:ems="10"
-            android:hint="Password"
+            android:hint="Mật khẩu"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -72,7 +69,7 @@
             android:layout_marginBottom="8dp"
             android:background="@drawable/button_background"
             android:minHeight="40dp"
-            android:text="Log In"
+            android:text="Đăng nhập"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +85,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
             android:onClick="openRegister"
-            android:text="Register Now"
+            android:text="Đăng ký"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -104,7 +101,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="52dp"
             android:layout_marginBottom="8dp"
-            android:text="Forgot Password!"
+            android:text="Quên mật khẩu!"
             android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

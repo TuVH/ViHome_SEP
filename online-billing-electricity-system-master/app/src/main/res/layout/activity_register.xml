@@ -42,7 +42,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="10dp"
                     android:ems="10"
-                    android:hint="Name"
+                    android:hint="Tên"
                     android:inputType="textPersonName" />
 
             </android.support.design.widget.TextInputLayout>
@@ -60,7 +60,7 @@
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
                     android:ems="10"
-                    android:hint="Customer No."
+                    android:hint="Mã Khách hàng"
                     android:inputType="number" />
             </android.support.design.widget.TextInputLayout>
 
@@ -78,7 +78,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="10dp"
                     android:ems="10"
-                    android:hint="Meter No."
+                    android:hint="Mã hóa đơn"
                     android:inputType="number" />
             </android.support.design.widget.TextInputLayout>
 
@@ -95,7 +95,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="10dp"
                     android:ems="10"
-                    android:hint="Mobile No."
+                    android:hint="Số điện thoại"
                     android:inputType="number" />
             </android.support.design.widget.TextInputLayout>
 
@@ -112,7 +112,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="10dp"
                     android:ems="10"
-                    android:hint="Email ID"
+                    android:hint="Email"
                     android:inputType="textEmailAddress" />
             </android.support.design.widget.TextInputLayout>
 
@@ -129,7 +129,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="10dp"
                     android:ems="10"
-                    android:hint="Username"
+                    android:hint="Tài khoản"
                     android:inputType="text" />
             </android.support.design.widget.TextInputLayout>
 
@@ -146,7 +146,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="10dp"
                     android:ems="10"
-                    android:hint="Password"
+                    android:hint="Mật khẩu"
                     android:inputType="textPassword" />
             </android.support.design.widget.TextInputLayout>
 
@@ -163,7 +163,7 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="10dp"
                     android:ems="10"
-                    android:hint="Confirm Password"
+                    android:hint="Xác nhận mật khẩu"
                     android:inputType="textPassword" />
             </android.support.design.widget.TextInputLayout>
 
@@ -176,7 +176,7 @@
                 android:maxHeight="40dp"
                 android:layout_marginRight="70dp"
                 android:layout_marginBottom="20dp"
-                android:text="Submit"
+                android:text="Xác nhận"
                 android:background="@drawable/button_background"/>
 
         </LinearLayout>

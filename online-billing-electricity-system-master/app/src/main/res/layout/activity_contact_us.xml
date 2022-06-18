@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
-                android:hint="Subject"
+                android:hint="Chủ đề"
                 android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
 
@@ -55,7 +55,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:gravity="top|left"
-                android:hint="Description"
+                android:hint="Mô tả vấn đề"
                 android:inputType="textMultiLine"
                 android:lines="4" />
         </android.support.design.widget.TextInputLayout>
@@ -68,6 +68,6 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:background="@drawable/button_background"
-            android:text="Submit" />
+            android:text="Xác nhận" />
     </RelativeLayout>
 </ScrollView>

@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (getValidData()) {
-                    mDialog = ProgressDialog.show(MainActivity.this, "Please Wait", "We are logging you...", true);
+                    mDialog = ProgressDialog.show(MainActivity.this, "Vui lòng chờ...", "Đang đăng nhập...", true);
                     userLogin(username);
                 }
             }
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 if (dataSnapshot.exists()) {
                     User user = dataSnapshot.child(username).getValue(User.class);
                     if (user.password.equals(password)) {
-                        Toast.makeText(MainActivity.this, "Log in successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
 
                         savePreferences();
                         mDialog.dismiss();
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
                         finish();
                     } else {
                         mDialog.dismiss();
-                        Snackbar.make(viewGroup, "Wrong Password!", Snackbar.LENGTH_LONG)
+                        Snackbar.make(viewGroup, "Sai mật khẩu!", Snackbar.LENGTH_LONG)
                                 .setAction("ACTION", null).show();
                     }
                 } else {
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                 if (dataSnapshot.exists()) {
                     Customer user = dataSnapshot.child(username).getValue(Customer.class);
                     if (user.password.equals(password)) {
-                        Toast.makeText(MainActivity.this, "Log in successful", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
 
                         savePreferences();
                         mDialog.dismiss();

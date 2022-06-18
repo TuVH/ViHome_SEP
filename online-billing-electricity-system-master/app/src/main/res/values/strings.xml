@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Online Billing System</string>
+    <string name="app_name">ViHome</string>
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->

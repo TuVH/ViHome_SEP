@@ -60,10 +60,10 @@ public class ChangePassword extends Fragment {
                     cpass = cpass_ET.getText().toString();
                     if (pass.equals(cpass)) {
                         mRef.child("password").setValue(pass);
-                        Toast.makeText(getActivity().getApplicationContext(), "Password Changed!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity().getApplicationContext(), "Thay đổi mật khẩu!", Toast.LENGTH_SHORT).show();
                     } else {
-                        Snackbar.make(mainView, "Password are not same! Try Again!!", Snackbar.LENGTH_LONG)
-                                .setAction("RETRY", new View.OnClickListener() {
+                        Snackbar.make(mainView, "Mật khẩu xác nhận không giống mật khẩu!", Snackbar.LENGTH_LONG)
+                                .setAction("Thử lại", new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
                                         pass_ET.setText("");
@@ -81,11 +81,11 @@ public class ChangePassword extends Fragment {
         pass = pass_ET.getText().toString();
         cpass = cpass_ET.getText().toString();
         if (pass.equals("") || pass == null) {
-            pass_ET.setError("Enter Password");
+            pass_ET.setError("Nhập mật khẩu");
             pass_ET.requestFocus();
             return false;
         } else if (cpass.equals("") || cpass == null) {
-            cpass_ET.setError("Enter Confirm Password");
+            cpass_ET.setError("Xác nhận mật khẩu");
             pass_ET.requestFocus();
             return false;
         } else {

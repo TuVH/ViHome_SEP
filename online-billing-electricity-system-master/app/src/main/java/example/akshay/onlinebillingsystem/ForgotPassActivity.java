@@ -58,7 +58,7 @@ public class ForgotPassActivity extends AppCompatActivity {
                         // This continuation runs on either success or failure, but if the task
                         // has failed then getResult() will throw an Exception which will be
                         // propagated down.
-                        Toast.makeText(ForgotPassActivity.this,"Password Send to Email",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ForgotPassActivity.this,"mật khẩu đã được gửi đến email",Toast.LENGTH_SHORT).show();
                         String result = (String) task.getResult().getData();
                         return result;
                     }

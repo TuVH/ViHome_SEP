@@ -7,25 +7,25 @@
         <item
             android:id="@+id/nav_bill_details"
             android:icon="@drawable/ic_view_list_black"
-            android:title="Bill Details" />
+            android:title="Chi tiết hóa đơn" />
 
         <item
             android:id="@+id/nav_forgot_password"
             android:icon="@drawable/ic_lock_outline_black_24dp"
-            android:title="Change Password" />
+            android:title="Thay đổi mật khẩu" />
 
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_highlight_off_black_24dp"
-            android:title="Log Out" />
+            android:title="Đăng xuất" />
 
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Thêm">
         <menu>
             <item
                 android:id="@+id/nav_contact"
-                android:title="Contact Us" />
+                android:title="Liên hệ" />
             <!--                android:icon="@drawable/ic_send_black_24dp"-->
         </menu>
     </item>
