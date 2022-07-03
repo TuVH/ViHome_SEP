@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactUsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/bill_id"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top|start"
+            android:text="  Email"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp">
+
+            <TextView
+                android:id="@+id/bill_amount1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|start"
+                android:text="  Tên"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/emailInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                tools:ignore="TouchTargetSizeCheck" />
+
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/_subject"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/_email">
+
+            <TextView
+                android:id="@+id/bill_amount2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|start"
+                android:text="   Số điện thoại"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/nameInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="bottom|start"
+                android:hint="Tên"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/_phoneNumberTextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/_subject">
+
+            <TextView
+                android:id="@+id/phoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="top|start"
+                android:text="   Mã hóa đơn"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/phoneNumberInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="bottom|start"
+                android:hint="Số điện thoại"
+                android:inputType="text" />
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/_phoneNumberTextInput">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/mo_noInfo"
+                android:layout_width="473dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:gravity="top|left"
+                android:hint="Mã Hóa đơn"
+                android:enabled="false"
+                android:inputType="textMultiLine"
+                android:lines="4" />
+        </android.support.design.widget.TextInputLayout>
+
+<!--        <Button-->
+<!--            android:id="@+id/contact_button"-->
+<!--            android:layout_width="200dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@id/_description"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:background="@drawable/button_background"-->
+<!--            android:text="Xác nhận" />-->
+
+    </RelativeLayout>
+</ScrollView>

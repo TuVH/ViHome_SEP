@@ -19,7 +19,7 @@ public class CustomerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     TextView display_name, display_email;
-    String name, email;
+    String name, email,mo_no;
 
     Customer mOriginalUser;
 
@@ -114,8 +114,10 @@ public class CustomerActivity extends AppCompatActivity
             getFragmentManager().beginTransaction().replace(R.id.customer_fragment,new TransactionActivity()).commit();
         } else if(id == R.id.nav_forgot_password){
             getFragmentManager().beginTransaction().replace(R.id.customer_fragment,new ChangePassword()).commit();
-        }else if(id == R.id.nav_contact){
+        } else if(id == R.id.nav_contact){
             getFragmentManager().beginTransaction().replace(R.id.customer_fragment,new ContactUsActivity()).commit();
+        } else if(id == R.id.nav_information_user){
+            getFragmentManager().beginTransaction().replace(R.id.customer_fragment,new InformationActivity()).commit();
         } else if (id == R.id.nav_logout) {
             logOut();
         }

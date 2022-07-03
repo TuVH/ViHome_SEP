@@ -157,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
         if (sharedpreferences.contains("usernameKey")) {
             username_ET.setText(sharedpreferences.getString("usernameKey", ""));
             username = sharedpreferences.getString("usernameKey", "");
-            mDialog = ProgressDialog.show(MainActivity.this, "Please Wait", "We are logging you...", true);
+            mDialog = ProgressDialog.show(MainActivity.this, "Chờ chút nha!", "Đăng nhập...", true);
 
             //Retrieve data of specific user
             Query query = mUserData.child("Unit Reader").orderByChild("username").equalTo(username);

@@ -47,7 +47,7 @@ public class TransactionActivity extends Fragment {
         adapter = new DetailAdapter(getActivity().getApplicationContext(), billList);
         recyclerView.setAdapter(adapter);
 
-        mRef = FirebaseDatabase.getInstance().getReference("/Bill Info/" + mCustomer.meter_no);
+        //mRef = FirebaseDatabase.getInstance().getReference("/Bill Info/" + mCustomer.meter_no);
         Query query = mRef.orderByChild("bill_no");
 
         query.addListenerForSingleValueEvent(new ValueEventListener() {

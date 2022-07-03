@@ -5,6 +5,10 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_information_user"
+            android:icon="@drawable/ic_username"
+            android:title="Thông tin cá nhân" />
+        <item
             android:id="@+id/nav_bill_details"
             android:icon="@drawable/ic_view_list_black"
             android:title="Chi tiết hóa đơn" />

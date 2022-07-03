@@ -28,14 +28,13 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Register extends AppCompatActivity {
 
-    EditText customerNo_ET;
     EditText customerName_ET;
-    EditText meterNo_ET;
     EditText mobileNo_ET;
     EditText email_ET;
     EditText password_ET;
     EditText cPass_ET;
     EditText username_ET;
+    //EditText mono_ET;
     Button dataSubmit;
     TextInputLayout cnoTIL, mnoTIL;
 
@@ -44,9 +43,10 @@ public class Register extends AppCompatActivity {
     String email;
     String username;
     String password;
+    String room_id;
     String mo_no;
+    String phoneNumber;
     String cpass;
-    int c_no, meter_no;
 
     FirebaseDatabase database;
     DatabaseReference mRef;
@@ -61,15 +61,15 @@ public class Register extends AppCompatActivity {
         mRef = database.getReference("dummy");
 
         //Fetch all edit text fields
-        customerNo_ET = (EditText) findViewById(R.id.enter_cno);
         customerName_ET = (EditText) findViewById(R.id.enter_cname);
-        meterNo_ET = (EditText) findViewById(R.id.enter_meter_no);
         email_ET = (EditText) findViewById(R.id.enter_email);
-        mobileNo_ET = (EditText) findViewById(R.id.enter_mo_no);
+        mobileNo_ET = (EditText) findViewById(R.id.enter_phoneNumber);
         username_ET = (EditText) findViewById(R.id.enter_username);
         password_ET = (EditText) findViewById(R.id.enter_pass);
+        //mono_ET= (EditText) findViewById(R.id.enter_mo_no);
         cPass_ET = (EditText) findViewById(R.id.enter_cpass);
         dataSubmit = (Button) findViewById(R.id.submit_data);
+
         cnoTIL = findViewById(R.id.cno_text);
         mnoTIL = findViewById(R.id.mno_text);
 
@@ -113,10 +113,10 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 name = customerName_ET.getText().toString();
-                mo_no = mobileNo_ET.getText().toString();
                 email = email_ET.getText().toString();
                 username = username_ET.getText().toString();
                 password = password_ET.getText().toString();
+                phoneNumber = mobileNo_ET.getText().toString();
                 cpass = cPass_ET.getText().toString();
 
                 if(user_type == null) {
@@ -133,10 +133,9 @@ public class Register extends AppCompatActivity {
                                     }
                                 }).show();
                     } else {
-                        c_no = Integer.parseInt(customerNo_ET.getText().toString());
-                        meter_no = Integer.parseInt(meterNo_ET.getText().toString());
 
                         mDialog = ProgressDialog.show(Register.this, "Loading", "Please wait...", true);
+                        fetchOldData();
                         addCustomer();
                     }
                 } else if(user_type.equals("Users/Unit Reader")){
@@ -166,7 +165,7 @@ public class Register extends AppCompatActivity {
                 if (dataSnapshot.hasChild(username)) {
                     alertDialog("Alert","Username already exists.");
                 } else {
-                    Customer customer = new Customer(name, email, username, password, mo_no, c_no, meter_no);
+                    Customer customer = new Customer(name, email, username, password, mo_no,phoneNumber);
                     mRef.child(username).setValue(customer).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
@@ -191,7 +190,7 @@ public class Register extends AppCompatActivity {
                 if (dataSnapshot.hasChild(username)) {
                     alertDialog("Alert","Username already exists.");
                 } else {
-                    User user = new User(name, email, username, password, mo_no);
+                    User user = new User(name, email, username, password, phoneNumber);
                     mRef.child(username).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -222,5 +221,28 @@ public class Register extends AppCompatActivity {
                         finish();
                     }
                 }).show();
+    }
+    private void fetchOldData() {
+        mRef = database.getReference("Users/Customer");
+        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                int temp = 148;
+                mo_no = String.format("KH%d", temp);
+                for(DataSnapshot singleSnapshot : dataSnapshot.getChildren()){
+                    String mono = singleSnapshot.child("mo_no").getValue(String.class);
+                    if (mono.equals(mo_no) || Integer.parseInt(String.valueOf(mono.lastIndexOf(3))) < temp){
+                        temp++;
+                        mo_no = String.format("KH%d",temp);
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 }

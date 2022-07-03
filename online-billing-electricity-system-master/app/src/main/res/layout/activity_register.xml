@@ -53,15 +53,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
 
-                <EditText
-                    android:id="@+id/enter_cno"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:ems="10"
-                    android:hint="Mã Khách hàng"
-                    android:inputType="number" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -70,16 +61,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp">
 
-                <EditText
-                    android:id="@+id/enter_meter_no"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginRight="10dp"
-                    android:ems="10"
-                    android:hint="Mã hóa đơn"
-                    android:inputType="number" />
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
@@ -88,7 +69,7 @@
                 android:layout_marginTop="5dp">
 
                 <EditText
-                    android:id="@+id/enter_mo_no"
+                    android:id="@+id/enter_phoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"

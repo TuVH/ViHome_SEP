@@ -33,12 +33,12 @@ public class GetDetailsActivity extends Fragment {
     View mainView;
 
     LinearLayout detailsLayout;
-    EditText meterNoEditText, currentUnitEditText;
+    EditText waterEditText, electricEditText, homeEditText,meterNoEditText;
     Button getDetailButton, submitUnitButton, resetButton;
-    TextView nameTextView, cnoTextView, mnoTextView, lastUnitTextView, pendingAmountTextView;
+    TextView nameTextView, monoTextView, pendingTextView, phoneNumberTextView;
 
     String meterNo;
-    int intMeterNo, currentUnit, lastUnit, pendingAmount;
+    int intMeterNo, waterUnit, electricUnit, homeUnit, pendingAmount;
 
     FirebaseDatabase database;
     DatabaseReference mCustomerRef, mBillInfo;
@@ -51,13 +51,15 @@ public class GetDetailsActivity extends Fragment {
 
         ((HomeActivity) getActivity()).setActionBarTitle("Thêm Hóa đơn");
 
+
         meterNoEditText = mainView.findViewById(R.id.get_meter_no);
+        waterEditText = mainView.findViewById(R.id.enter_water_unit);
+        electricEditText = mainView.findViewById(R.id.enter_electric_unit);
+        homeEditText = mainView.findViewById(R.id.enter_home_unit);
         nameTextView = mainView.findViewById(R.id.dis_name);
-        cnoTextView = mainView.findViewById(R.id.dis_cno);
-        mnoTextView = mainView.findViewById(R.id.dis_mno);
-        pendingAmountTextView = mainView.findViewById(R.id.dis_pending_amount);
-        lastUnitTextView = mainView.findViewById(R.id.dis_last_unit);
-        currentUnitEditText = mainView.findViewById(R.id.enter_current_unit);
+        monoTextView = mainView.findViewById(R.id.dis_mono);
+        pendingTextView = mainView.findViewById(R.id.dis_pending);
+        phoneNumberTextView = mainView.findViewById(R.id.dis_phoneNumber);
 
         database = FirebaseDatabase.getInstance();
         mCustomerRef = database.getReference("Users/Customer");
@@ -72,12 +74,11 @@ public class GetDetailsActivity extends Fragment {
                 meterNo = meterNoEditText.getText().toString();
                 if (!meterNo.equals("")) {
                     mDialog = ProgressDialog.show(mainView.getContext(), "Loading...", "Đang tìm kiếm...", true);
-                    intMeterNo = Integer.parseInt(meterNo);
                     mBillInfo = database.getReference("Bill Info/" + meterNo);
                     fetchOldData();
 
                     Query query = FirebaseDatabase.getInstance().getReference("Users/Customer")
-                            .orderByChild("meter_no").equalTo(intMeterNo);
+                            .orderByChild("mo_no").equalTo(meterNo);
 
                     query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @SuppressLint("SetTextI18n")
@@ -88,10 +89,13 @@ public class GetDetailsActivity extends Fragment {
                                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                                     Customer customer = snapshot.getValue(Customer.class);
                                     nameTextView.setText(customer.name);
-                                    cnoTextView.setText("" + customer.c_no);
-                                    mnoTextView.setText("" + customer.meter_no);
-                                    pendingAmountTextView.setText("" + pendingAmount);
-                                    lastUnitTextView.setText("" + lastUnit);
+//                                    cnoTextView.setText("" + customer.c_no);
+//                                    mnoTextView.setText("" + customer.meter_no);
+//                                    pendingAmountTextView.setText("" + pendingAmount);
+//                                    lastUnitTextView.setText("" + lastUnit);
+                                    monoTextView.setText(customer.mo_no);
+                                    phoneNumberTextView.setText(customer.phoneNumber);
+                                    //pending
                                     mDialog.dismiss();
                                 }
                             } else {
@@ -117,15 +121,21 @@ public class GetDetailsActivity extends Fragment {
         submitUnitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!currentUnitEditText.getText().toString().equals("")) {
-                    currentUnit = Integer.parseInt(currentUnitEditText.getText().toString());
-                    if (isValidCurrentUnit(currentUnit)) {
-                        final int used_unit = currentUnit - lastUnit;
-                        final int final_amount = Calculation.calculation(used_unit, pendingAmount);
+                if (!waterEditText.getText().toString().equals("") && !electricEditText.getText().toString().equals("")  && !homeEditText.getText().toString().equals("")) {
+                    waterUnit = Integer.parseInt(waterEditText.getText().toString());
+                    electricUnit = Integer.parseInt(electricEditText.getText().toString());
+                    homeUnit = Integer.parseInt(homeEditText.getText().toString());
+                        //caculator
+                        final int water_amount = waterUnit * 20000;
+                        final int electric_amount = electricUnit * 2500;
+                        final int home_amount = homeUnit;
+                        final int totalCount = water_amount + electric_amount + home_amount;
 
                         final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getActivity());
-                        alertDialogBuilder.setTitle("Thông báo").setMessage("Đơn vị hiện tại: " + currentUnit +
-                                "\nĐơn vị sử dụng: " + used_unit + "\nTổng: " + final_amount)
+                        alertDialogBuilder.setTitle("Thông báo").setMessage("Đơn vị nước hiện tại: m3"+
+                                "\nĐơn vị sử dụng: " + waterUnit + "\nTổng: " + water_amount + "\nĐơn vị điện hiện tại: kwh"+
+                                        "\nĐơn vị sử dụng: " + electricUnit + "\nTổng: " + electric_amount + "\nTổng tiền nhà: " +
+                                        home_amount + "\nTổng cộng: " + totalCount)
                                 .setPositiveButton("Xác nhận", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
                                         mDialog = ProgressDialog.show(mainView.getContext(), "Loading...", "Vui lòng chờ...", true);
@@ -136,11 +146,15 @@ public class GetDetailsActivity extends Fragment {
                                             @Override
                                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                                                 try {
-                                                    int billNo = dataSnapshot.child("bill_no").getValue(Integer.class);
-                                                    billNo++;
+                                                    int billNo = 0;
+                                                    if (dataSnapshot.child("bill_no").getValue(Integer.class) == null){
+                                                        billNo = 0;
+                                                    }else if (dataSnapshot.child("bill_no").getValue(Integer.class) != null){
+                                                        billNo = dataSnapshot.child("bill_no").getValue(Integer.class) +1;
+                                                    }
                                                     billNoRef.child("bill_no").setValue(billNo);
 
-                                                    AddBill addBill = new AddBill(billNo, used_unit, final_amount, "Đang xử lý");
+                                                    AddBill addBill = new AddBill(billNo, water_amount, electric_amount,home_amount, "Đang xử lý");
                                                     mBillInfo.child(labelOfBillInfo()).setValue(addBill).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                         @Override
                                                         public void onComplete(@NonNull Task<Void> task) {
@@ -153,8 +167,6 @@ public class GetDetailsActivity extends Fragment {
                                                             }
                                                         }
                                                     });
-                                                    mBillInfo.child("last_unit").setValue(currentUnit);
-                                                    mBillInfo.child("pending_amount").setValue(final_amount);
                                                 } catch (NullPointerException e) {
                                                     Log.d("Mã hóa đơn: ", "không có");
                                                     mDialog.dismiss();
@@ -170,14 +182,15 @@ public class GetDetailsActivity extends Fragment {
                                     }
                                 }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                currentUnitEditText.setText("");
+                                waterEditText.setText("");
+                                electricEditText.setText("");
+                                homeEditText.setText("");
                             }
                         }).show();
                     } else {
-                        currentUnitEditText.setError("Enter Valid Unit");
-                    }
-                } else {
-                    currentUnitEditText.setError("Enter Valid Unit");
+                    waterEditText.setError("Enter Valid Unit");
+                    electricEditText.setError("Enter Valid Unit");
+                    homeEditText.setError("Enter Valid Unit");
                 }
             }
         });
@@ -186,7 +199,9 @@ public class GetDetailsActivity extends Fragment {
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentUnitEditText.setText("");
+                waterEditText.setText("");
+                electricEditText.setText("");
+                homeEditText.setText("");
             }
         });
 
@@ -194,20 +209,19 @@ public class GetDetailsActivity extends Fragment {
         return mainView;
     }
 
-    private boolean isValidCurrentUnit(int unit) {
-        return unit >= lastUnit;
-    }
 
     private void fetchOldData() {
         mBillInfo.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try {
-                    lastUnit = dataSnapshot.child("last_unit").getValue(Integer.class);
-                    pendingAmount = dataSnapshot.child("pending_amount").getValue(Integer.class);
+                    waterUnit = dataSnapshot.child("water_amount").getValue(Integer.class);
+                    electricUnit = dataSnapshot.child("electric_amount").getValue(Integer.class);
+                    homeUnit = dataSnapshot.child("home_amount").getValue(Integer.class);
                 } catch (NullPointerException e) {
-                    lastUnit = 0;
-                    pendingAmount = 0;
+                    waterUnit = 0;
+                    electricUnit = 0;
+                    homeUnit = 0;
                 }
             }
 
@@ -236,7 +250,9 @@ public class GetDetailsActivity extends Fragment {
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         detailsLayout.setVisibility(View.GONE);
-                        currentUnitEditText.setText("");
+                        waterEditText.setText("");
+                        electricEditText.setText("");
+                        homeEditText.setText("");
                         meterNoEditText.requestFocus();
                         //meterNoEditText.setText("");
                     }

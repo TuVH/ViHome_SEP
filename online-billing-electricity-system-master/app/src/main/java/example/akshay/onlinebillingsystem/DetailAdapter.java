@@ -36,18 +36,12 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.DetailView
     public void onBindViewHolder(DetailViewHolder holder, int position) {
         AddBill addBill = billList.get(position);
 
-        try {
-            Date d1 = new SimpleDateFormat("dd/MM/yyyy").parse(addBill.date);
-            String date = new SimpleDateFormat("MMM, yyyy", Locale.getDefault()).format(d1);
-            holder.textBillDate.setText(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        holder.textAmount.setText("₹ " + addBill.payable_amount);
-        holder.textBillNo.setText("" + addBill.bill_no);
-        holder.textUsedUnit.setText("" + addBill.used_unit);
-        holder.textDueDate.setText("" + addBill.due_date);
-        holder.textStatus.setText("" + addBill.status);
+        holder.water_unit_total.setText("₹ " + addBill.water_amount);
+        holder.electric_unit_total.setText("" + addBill.electric_amount);
+        holder.home_unit_total.setText("" + addBill.home_amount);
+        int total = addBill.water_amount + addBill.electric_amount +  addBill.home_amount;
+        holder.totalAll_unit_total.setText("" + total);
+        holder.bill_no.setText("" + addBill.bill_no);
     }
 
     @Override
@@ -57,17 +51,15 @@ public class DetailAdapter extends RecyclerView.Adapter<DetailAdapter.DetailView
 
     class DetailViewHolder extends RecyclerView.ViewHolder {
 
-        TextView textBillDate, textBillNo, textUsedUnit, textAmount, textDueDate, textStatus;
+        TextView water_unit_total, electric_unit_total, home_unit_total, totalAll_unit_total, bill_no;
 
         public DetailViewHolder(@NonNull View itemView) {
             super(itemView);
-
-            textBillDate = itemView.findViewById(R.id.bill_date);
-            textBillNo = itemView.findViewById(R.id.bill_no);
-            textUsedUnit = itemView.findViewById(R.id.used_unit);
-            textAmount = itemView.findViewById(R.id.bill_amount);
-            textDueDate = itemView.findViewById(R.id.due_date);
-            textStatus = itemView.findViewById(R.id.status);
+            bill_no = itemView.findViewById(R.id.bill_no);
+            water_unit_total = itemView.findViewById(R.id.water_unit_total);
+            electric_unit_total = itemView.findViewById(R.id.electric_unit_total);
+            home_unit_total = itemView.findViewById(R.id.home_unit_total);
+            totalAll_unit_total = itemView.findViewById(R.id.totalAll_unit_total);
         }
     }
 }
