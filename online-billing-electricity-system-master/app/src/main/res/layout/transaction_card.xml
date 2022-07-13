@@ -55,6 +55,7 @@
                 android:layout_below="@id/bill_no"
                 android:layout_marginTop="5dp"
                 android:text="Tiền nước"
+                android:textStyle="bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
             <TextView
@@ -79,6 +80,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/water_title"
                 android:gravity="top|end"
+                android:textSize="20dp"
                 android:text="Tổng cộng" />
 
 
@@ -91,6 +93,7 @@
                 android:layout_below="@id/water_unit"
                 android:layout_marginTop="5dp"
                 android:text="Tiền điện"
+                android:textStyle="bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
             <TextView
@@ -115,6 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/electric_title"
                 android:gravity="top|end"
+                android:textSize="20dp"
                 android:text="Tổng cộng" />
 
 
@@ -126,6 +130,7 @@
                 android:layout_below="@id/electric_unit"
                 android:layout_marginTop="5dp"
                 android:text="Tiền nhà"
+                android:textStyle="bold"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium" />
 
             <TextView
@@ -150,7 +155,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/home_title"
                 android:gravity="top|end"
-                android:text="Tổng cộng " />
+                android:text="Tổng cộng "
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/total_unit"
@@ -158,15 +164,17 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/home_unit_total"
                 android:gravity="top|end"
-                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
-                android:text="Tổng cộng tất cả" />
+                android:text="Tổng cộng tất cả"
+                android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
             <TextView
                 android:id="@+id/totalAll_unit_total"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="397dp"
+                android:layout_height="60dp"
                 android:layout_below="@+id/total_unit"
                 android:gravity="top|end"
+                android:textSize="30dp"
+                android:fontFamily="sans-serif-condensed-medium"
                 android:text="Tổng cộng" />
 
         </RelativeLayout>

@@ -35,11 +35,11 @@ public class ContactUsActivity extends Fragment {
         mainView = inflater.inflate(R.layout.activity_contact_us, container, false);
 
         try {
-            ((HomeActivity) getActivity()).setActionBarTitle("Contact Us");
+            ((HomeActivity) getActivity()).setActionBarTitle("Liên hệ");
             unitReader = ((HomeActivity) getActivity()).getUnitReader();
             email = unitReader.email;
         } catch (Exception e) {
-            ((CustomerActivity) getActivity()).setActionBarTitle("Contact Us");
+            ((CustomerActivity) getActivity()).setActionBarTitle("Liên hệ");
             customer = ((CustomerActivity) getActivity()).getCustomer();
             email = customer.email;
         }

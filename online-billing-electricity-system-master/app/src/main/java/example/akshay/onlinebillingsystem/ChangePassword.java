@@ -37,12 +37,12 @@ public class ChangePassword extends Fragment {
         mainView = inflater.inflate(R.layout.activity_change_password, container, false);
 
         try {
-            ((HomeActivity) getActivity()).setActionBarTitle("Change Password");
+            ((HomeActivity) getActivity()).setActionBarTitle("Đổi mật khẩu");
             unitReader = ((HomeActivity) getActivity()).getUnitReader();
             type = UNITREADER;
             mRef = FirebaseDatabase.getInstance().getReference("Users/Unit Reader/" + unitReader.username);
         } catch (Exception e) {
-            ((CustomerActivity) getActivity()).setActionBarTitle("Change Password");
+            ((CustomerActivity) getActivity()).setActionBarTitle("Đổi mật khẩu");
             customer = ((CustomerActivity) getActivity()).getCustomer();
             type = CUSTOMER;
             mRef = FirebaseDatabase.getInstance().getReference("Users/Customer/" + customer.username);

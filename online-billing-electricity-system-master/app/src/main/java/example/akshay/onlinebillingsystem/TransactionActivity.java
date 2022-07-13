@@ -19,7 +19,9 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 public class TransactionActivity extends Fragment {
 
@@ -47,21 +49,25 @@ public class TransactionActivity extends Fragment {
         adapter = new DetailAdapter(getActivity().getApplicationContext(), billList);
         recyclerView.setAdapter(adapter);
 
-        //mRef = FirebaseDatabase.getInstance().getReference("/Bill Info/" + mCustomer.meter_no);
-        Query query = mRef.orderByChild("bill_no");
+        mRef = FirebaseDatabase.getInstance().getReference("/Bill Info/");
 
-        query.addListenerForSingleValueEvent(new ValueEventListener() {
+        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 billList.clear();
-                Log.d("Demo ", dataSnapshot.toString());
                 if (dataSnapshot.exists()) {
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         try {
-                            AddBill addBill = snapshot.getValue(AddBill.class);
-                            billList.add(addBill);
+                            if (Objects.equals(mCustomer.mo_no, snapshot.getKey())){
+                                Iterable<DataSnapshot> dataSnapshots =  snapshot.getChildren();
+                                for (DataSnapshot t: dataSnapshots) {
+                                    AddBill addBill = t.getValue(AddBill.class);
+                                    if (addBill != null){
+                                        billList.add(addBill);
+                                    }
+                                }
+                            }
                         } catch (Exception e) {
-
                         }
                     }
                     adapter.notifyDataSetChanged();

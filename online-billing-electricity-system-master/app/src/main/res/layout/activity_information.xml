@@ -80,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="top|start"
-                android:text="   Mã hóa đơn"
+                android:text="   Mã khách hàng"
                 android:textAppearance="@style/Base.TextAppearance.AppCompat.Large" />
 
             <android.support.design.widget.TextInputEditText
@@ -107,7 +107,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:gravity="top|left"
-                android:hint="Mã Hóa đơn"
+                android:hint="Mã khách hàng"
                 android:enabled="false"
                 android:inputType="textMultiLine"
                 android:lines="4" />
