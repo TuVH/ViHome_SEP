@@ -24,6 +24,7 @@ public class InformationActivity extends Fragment {
     Customer customer;
     User unitReader;
 
+
     EditText editTextEmail, editTextName, editTextMono,editTextPhoneNumber;
     Button button;
     String email, name, mo_no,phoneNumber;

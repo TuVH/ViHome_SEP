@@ -13,6 +13,10 @@
             android:icon="@drawable/ic_add_black"
             android:title="Thêm Hóa đơn" />
         <item
+            android:id="@+id/nav_info_bill"
+            android:icon="@android:drawable/btn_star_big_on"
+            android:title="Thông tin điện nước" />
+        <item
             android:id="@+id/nav_list_bill"
             android:icon="@drawable/ic_view_list_black"
             android:title="Danh sách hóa đơn" />

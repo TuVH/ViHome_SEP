@@ -36,6 +36,7 @@ public class GetDetailsActivity extends Fragment {
     EditText waterEditText, electricEditText, homeEditText,meterNoEditText;
     Button getDetailButton, submitUnitButton, resetButton;
     TextView nameTextView, monoTextView, pendingTextView, phoneNumberTextView;
+    User unitReader;
 
     String meterNo;
     int intMeterNo, waterUnit, electricUnit, homeUnit, pendingAmount;
@@ -122,9 +123,12 @@ public class GetDetailsActivity extends Fragment {
             @Override
             public void onClick(View v) {
                 if (!waterEditText.getText().toString().equals("") && !electricEditText.getText().toString().equals("")  && !homeEditText.getText().toString().equals("")) {
-                    waterUnit = Integer.parseInt(waterEditText.getText().toString());
-                    electricUnit = Integer.parseInt(electricEditText.getText().toString());
-                    homeUnit = Integer.parseInt(homeEditText.getText().toString());
+                    unitReader = ((HomeActivity) getActivity()).getUnitReader();
+
+                    waterUnit = Integer.parseInt(unitReader.water_amount);
+                    electricUnit = Integer.parseInt(unitReader.electric_amount);
+                    homeUnit = Integer.parseInt(unitReader.home_amount);
+
                         //caculator
                         final int water_amount = waterUnit * 20000;
                         final int electric_amount = electricUnit * 2500;
