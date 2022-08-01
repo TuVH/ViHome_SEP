@@ -33,8 +33,8 @@ public class GetDetailsActivity extends Fragment {
     View mainView;
 
     LinearLayout detailsLayout;
-    EditText waterEditText, electricEditText, homeEditText,meterNoEditText;
-    Button getDetailButton, submitUnitButton, resetButton;
+    EditText meterNoEditText;
+    Button getDetailButton, submitUnitButton, resetButton,getDetailButtonBill;
     TextView nameTextView, monoTextView, pendingTextView, phoneNumberTextView;
     User unitReader;
 
@@ -54,13 +54,11 @@ public class GetDetailsActivity extends Fragment {
 
 
         meterNoEditText = mainView.findViewById(R.id.get_meter_no);
-        waterEditText = mainView.findViewById(R.id.enter_water_unit);
-        electricEditText = mainView.findViewById(R.id.enter_electric_unit);
-        homeEditText = mainView.findViewById(R.id.enter_home_unit);
         nameTextView = mainView.findViewById(R.id.dis_name);
         monoTextView = mainView.findViewById(R.id.dis_mono);
         pendingTextView = mainView.findViewById(R.id.dis_pending);
         phoneNumberTextView = mainView.findViewById(R.id.dis_phoneNumber);
+        getDetailButtonBill = mainView.findViewById(R.id.find_info);
 
         database = FirebaseDatabase.getInstance();
         mCustomerRef = database.getReference("Users/Customer");
@@ -118,15 +116,21 @@ public class GetDetailsActivity extends Fragment {
             }
         });
 
+
+        getDetailButtonBill.setOnClickListener(view -> {
+            getFragmentManager().beginTransaction().replace(R.id.fragment_container,new GetBillActivity()).addToBackStack("tag").commit();
+        });
+
+
         submitUnitButton = mainView.findViewById(R.id.submit_unit_data);
         submitUnitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!waterEditText.getText().toString().equals("") && !electricEditText.getText().toString().equals("")  && !homeEditText.getText().toString().equals("")) {
+                {
                     unitReader = ((HomeActivity) getActivity()).getUnitReader();
 
-                    waterUnit = Integer.parseInt(unitReader.water_amount);
-                    electricUnit = Integer.parseInt(unitReader.electric_amount);
+                    waterUnit = Integer.parseInt(unitReader.water_amount_new) - Integer.parseInt(unitReader.water_amount);
+                    electricUnit = Integer.parseInt(unitReader.electric_amount_new) - Integer.parseInt(unitReader.electric_amount);
                     homeUnit = Integer.parseInt(unitReader.home_amount);
 
                         //caculator
@@ -186,16 +190,10 @@ public class GetDetailsActivity extends Fragment {
                                     }
                                 }).setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int which) {
-                                waterEditText.setText("");
-                                electricEditText.setText("");
-                                homeEditText.setText("");
+
                             }
                         }).show();
-                    } else {
-                    waterEditText.setError("Enter Valid Unit");
-                    electricEditText.setError("Enter Valid Unit");
-                    homeEditText.setError("Enter Valid Unit");
-                }
+                    }
             }
         });
 
@@ -203,9 +201,7 @@ public class GetDetailsActivity extends Fragment {
         resetButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                waterEditText.setText("");
-                electricEditText.setText("");
-                homeEditText.setText("");
+
             }
         });
 
@@ -254,9 +250,6 @@ public class GetDetailsActivity extends Fragment {
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         detailsLayout.setVisibility(View.GONE);
-                        waterEditText.setText("");
-                        electricEditText.setText("");
-                        homeEditText.setText("");
                         meterNoEditText.requestFocus();
                         //meterNoEditText.setText("");
                     }

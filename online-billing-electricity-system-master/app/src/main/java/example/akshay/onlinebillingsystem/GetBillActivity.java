@@ -1,9 +1,7 @@
 package example.akshay.onlinebillingsystem;
 
-import android.app.AlertDialog;
 import android.app.Fragment;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -22,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class ChangeBillActivity extends Fragment {
+public class GetBillActivity extends Fragment {
 
     View mainView;
 
@@ -82,32 +80,9 @@ public class ChangeBillActivity extends Fragment {
 
 
         dataSubmit.setOnClickListener(view -> {
-            unitReader.electric_amount_new = electric_amount_new.getText().toString();
-            unitReader.electric_amount = electric_amount_old.getText().toString();
-            unitReader.water_amount = water_amount_old.getText().toString();
-            unitReader.water_amount_new = water_amount_new.getText().toString();
-            unitReader.home_amount = home_amount.getText().toString();
-
-            mRef = database.getReference("Users/Unit Reader");
-            mRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    mRef.child(unitReader.username).setValue(unitReader).addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()){
-
-                            } else {
-                            }
-                        }
-                    });
-
-                }
-
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
-                }
-            });
+            if (getFragmentManager().getBackStackEntryCount() > 0) {
+                getFragmentManager().popBackStack();
+            }
         });
         return mainView;
     }

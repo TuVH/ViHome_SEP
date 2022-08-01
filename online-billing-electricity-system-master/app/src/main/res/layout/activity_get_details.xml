@@ -74,7 +74,7 @@
 
                     <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:orientation="vertical">
 
                         <TextView
@@ -106,39 +106,23 @@
                             android:text="Số điện thoại:"
                             android:textColor="#000"
                             android:textSize="18dp" />
+
                         <TextView
                             android:id="@+id/textView54"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_width="153dp"
+                            android:layout_height="50dp"
                             android:layout_margin="10dp"
                             android:fontFamily="sans-serif-condensed"
-                            android:text="Số tiền nước:"
-                            android:textColor="#000"
-                            android:textSize="18dp" />
-                        <TextView
-                            android:id="@+id/textView55"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="Số tiền điện:"
-                            android:textColor="#000"
-                            android:textSize="18dp" />
-                        <TextView
-                            android:id="@+id/textView56"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="10dp"
-                            android:fontFamily="sans-serif-condensed"
-                            android:text="Số tiền nhà"
+                            android:text="Chi tiết điện nước:"
                             android:textColor="#000"
                             android:textSize="18dp" />
 
                         <TextView
                             android:id="@+id/textView51"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="51dp"
                             android:layout_margin="10dp"
+                            android:layout_marginTop="100dp"
                             android:fontFamily="sans-serif-condensed"
                             android:text="Chờ xử lý:"
                             android:textColor="#000"
@@ -184,39 +168,15 @@
                             android:textColor="#000"
                             android:textSize="18dp" />
 
-                        <EditText
-                            android:id="@+id/enter_water_unit"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:hint="Nhập số mét khối nước"
-                            android:inputType="number"
-                            android:textColor="#000"
-                            android:textSize="18dp" />
-                        <EditText
-                            android:id="@+id/enter_electric_unit"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:hint="Nhập số kw điện"
-                            android:inputType="number"
-                            android:textColor="#000"
-                            android:textSize="18dp" />
-                        <EditText
-                            android:id="@+id/enter_home_unit"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:ems="10"
-                            android:fontFamily="sans-serif-condensed"
-                            android:hint="Nhập số tiền"
-                            android:inputType="number"
-                            android:textColor="#000"
-                            android:textSize="18dp" />
+                        <Button
+                            android:id="@+id/find_info"
+                            android:layout_width="81dp"
+                            android:layout_height="33dp"
+                            android:layout_margin="10dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/background_gradient"
+                            android:minHeight="40dp"
+                            android:text="Chi tiết" />
 
                         <TextView
                             android:id="@+id/dis_pending"
