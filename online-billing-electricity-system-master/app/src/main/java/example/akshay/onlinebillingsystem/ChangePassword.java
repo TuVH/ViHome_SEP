@@ -40,12 +40,12 @@ public class ChangePassword extends Fragment {
             ((HomeActivity) getActivity()).setActionBarTitle("Đổi mật khẩu");
             unitReader = ((HomeActivity) getActivity()).getUnitReader();
             type = UNITREADER;
-            mRef = FirebaseDatabase.getInstance().getReference("Users/Unit Reader/" + unitReader.username);
+            mRef = FirebaseDatabase.getInstance().getReference("Users/Host/" + unitReader.username);
         } catch (Exception e) {
             ((CustomerActivity) getActivity()).setActionBarTitle("Đổi mật khẩu");
             customer = ((CustomerActivity) getActivity()).getCustomer();
             type = CUSTOMER;
-            mRef = FirebaseDatabase.getInstance().getReference("Users/Customer/" + customer.username);
+            mRef = FirebaseDatabase.getInstance().getReference("Users/Renter/" + customer.username);
         }
 
 

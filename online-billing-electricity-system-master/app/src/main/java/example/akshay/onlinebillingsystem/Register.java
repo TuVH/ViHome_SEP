@@ -91,12 +91,12 @@ public class Register extends AppCompatActivity {
                     cnoTIL.setVisibility(View.GONE);
                     mnoTIL.setVisibility(View.GONE);
                 }else if(position == 1){
-                    user_type = "Users/Customer";
+                    user_type = "Users/Renter";
                     cnoTIL.setVisibility(View.VISIBLE);
                     mnoTIL.setVisibility(View.VISIBLE);
                     mRef = database.getReference(user_type);
                 } else if(position == 2){
-                    user_type = "Users/Unit Reader";
+                    user_type = "Users/Host";
                     cnoTIL.setVisibility(View.GONE);
                     mnoTIL.setVisibility(View.GONE);
                     mRef = database.getReference(user_type);
@@ -121,7 +121,7 @@ public class Register extends AppCompatActivity {
 
                 if(user_type == null) {
                     Toast.makeText(Register.this,"Please Select User",Toast.LENGTH_SHORT).show();
-                } else if(user_type.equals("Users/Customer")){
+                } else if(user_type.equals("Users/Renter")){
                     if (!cpass.equals(password)) {
 
                         Snackbar.make(v, "Password are not same! Try Again!!", Snackbar.LENGTH_LONG)
@@ -138,7 +138,7 @@ public class Register extends AppCompatActivity {
                         fetchOldData();
                         addCustomer();
                     }
-                } else if(user_type.equals("Users/Unit Reader")){
+                } else if(user_type.equals("Users/Host")){
                     if (!cpass.equals(password)) {
                         Snackbar.make(v, "Password are not same! Try Again!!", Snackbar.LENGTH_LONG)
                                 .setAction("RETRY", new View.OnClickListener() {
@@ -223,7 +223,7 @@ public class Register extends AppCompatActivity {
                 }).show();
     }
     private void fetchOldData() {
-        mRef = database.getReference("Users/Customer");
+        mRef = database.getReference("Users/Renter");
         mRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

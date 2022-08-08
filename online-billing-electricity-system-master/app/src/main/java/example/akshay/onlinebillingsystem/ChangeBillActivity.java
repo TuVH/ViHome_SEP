@@ -58,7 +58,7 @@ public class ChangeBillActivity extends Fragment {
         water_amount_new = mainView.findViewById(R.id.enter_water_unit_new);
         unitReader = ((HomeActivity) getActivity()).getUnitReader();
 
-        mRef = database.getReference("Users/Unit Reader");
+        mRef = database.getReference("Users/Host");
 
         mRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -88,7 +88,7 @@ public class ChangeBillActivity extends Fragment {
             unitReader.water_amount_new = water_amount_new.getText().toString();
             unitReader.home_amount = home_amount.getText().toString();
 
-            mRef = database.getReference("Users/Unit Reader");
+            mRef = database.getReference("Users/Host");
             mRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

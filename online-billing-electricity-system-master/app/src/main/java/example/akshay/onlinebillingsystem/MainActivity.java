@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         password_ET = findViewById(R.id.login_password);
         forgot_TV = findViewById(R.id.forgot_password);
 
-        getPreferences();
+        //getPreferences();
         sharedpreferences = getSharedPreferences(MYPREFERENCE, Context.MODE_PRIVATE);
 
         forgot_TV.setOnClickListener(new View.OnClickListener() {

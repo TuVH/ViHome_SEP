@@ -61,7 +61,7 @@ public class GetDetailsActivity extends Fragment {
         getDetailButtonBill = mainView.findViewById(R.id.find_info);
 
         database = FirebaseDatabase.getInstance();
-        mCustomerRef = database.getReference("Users/Customer");
+        mCustomerRef = database.getReference("Users/Renter");
 
         detailsLayout = mainView.findViewById(R.id.details_layout);
         detailsLayout.setVisibility(View.GONE);
@@ -76,7 +76,7 @@ public class GetDetailsActivity extends Fragment {
                     mBillInfo = database.getReference("Bill Info/" + meterNo);
                     fetchOldData();
 
-                    Query query = FirebaseDatabase.getInstance().getReference("Users/Customer")
+                    Query query = FirebaseDatabase.getInstance().getReference("Users/Renter")
                             .orderByChild("mo_no").equalTo(meterNo);
 
                     query.addListenerForSingleValueEvent(new ValueEventListener() {

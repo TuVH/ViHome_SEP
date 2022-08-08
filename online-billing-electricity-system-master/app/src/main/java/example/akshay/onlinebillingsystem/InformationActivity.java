@@ -86,7 +86,7 @@ public class InformationActivity extends Fragment {
                 unitReader.name = editTextName.getText().toString();
                 unitReader.phoneNumber = editTextPhoneNumber.getText().toString();
 
-                mRef = database.getReference("Users/Unit Reader");
+                mRef = database.getReference("Users/Host");
                 mRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -119,7 +119,7 @@ public class InformationActivity extends Fragment {
                 customer.name = editTextName.getText().toString();
                 customer.phoneNumber = editTextPhoneNumber.getText().toString();
 
-                mRef = database.getReference("Users/Customer");
+                mRef = database.getReference("Users/Renter");
                 mRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

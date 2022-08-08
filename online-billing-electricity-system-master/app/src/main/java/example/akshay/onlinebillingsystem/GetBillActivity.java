@@ -56,7 +56,7 @@ public class GetBillActivity extends Fragment {
         water_amount_new = mainView.findViewById(R.id.enter_water_unit_new);
         unitReader = ((HomeActivity) getActivity()).getUnitReader();
 
-        mRef = database.getReference("Users/Unit Reader");
+        mRef = database.getReference("Users/Host");
 
         mRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
