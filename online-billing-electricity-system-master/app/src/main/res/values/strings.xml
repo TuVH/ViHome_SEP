@@ -3,7 +3,7 @@
     <string name="title_activity_login">Sign in</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
+    <string name="prompt_email">Tài khoản</string>
     <string name="prompt_password">Password (Tùy chọn)</string>
     <string name="action_sign_in">Đăng nhập hoặc đăng kí</string>
     <string name="action_sign_in_short">Đăng nhập</string>
@@ -23,6 +23,7 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_user">Trang chủ</string>
     <string name="title_activity_home">Chủ nhà thuê</string>
+    <string name="danh_s_ch_nh_tr">Danh sách nhà trọ</string>
 
     <string-array name="user_array">
         <item>Chọn loại</item>

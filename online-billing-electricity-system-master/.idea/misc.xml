@@ -37,6 +37,40 @@
         <entry key="..\:/SEP_PROJECT/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/menu/home.xml" value="0.25416666666666665" />
         <entry key="..\:/SEP_PROJECT/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2105" />
         <entry key="..\:/SEP_PROJECT/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+        <entry key="..\:/Users/DuyToan/AppData/Local/Android/Sdk/platforms/android-26/data/res/layout/auto_complete_list.xml" value="0.36186594202898553" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.301" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/drawable/background_gradient.xml" value="0.2365" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/drawable/button_background.xml" value="0.301" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/drawable/custom_input.xml" value="0.301" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/drawable/ic_add_black.xml" value="0.301" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/drawable/ic_highlight_off_black_24dp.xml" value="0.301" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/drawable/ic_launcher_background.xml" value="0.301" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/drawable/ic_lock_outline_black_24dp.xml" value="0.2495" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/drawable/ic_login_back.xml" value="0.2495" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/drawable/ic_login_put.xml" value="0.2495" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/drawable/ic_username.xml" value="0.2365" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/drawable/ic_view_list_black.xml" value="0.301" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/layout/activity_change_password.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/layout/activity_contact_us.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/layout/activity_customer.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/layout/activity_forgot_pass.xml" value="0.36186594202898553" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/layout/activity_get_details.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/layout/activity_home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/layout/activity_information.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/layout/activity_register.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/layout/activity_transaction.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/layout/app_bar_customer.xml" value="0.25" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/layout/app_bar_home.xml" value="0.22" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/layout/content_home.xml" value="0.25" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/layout/layout.xml" value="0.25" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/layout/nav_header_home.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/layout/transaction_card.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/menu/activity_customer_drawer.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/menu/activity_home_drawer.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/menu/customer.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/menu/home.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/DuyToan/StudioProjects/ViHome_SEP/online-billing-electricity-system-master/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.301" />
         <entry key="..\:/online-billing-electricity-system-master/app/src/main/res/menu/activity_customer_drawer.xml" value="0.11302083333333333" />
         <entry key="..\:/online-billing-electricity-system-master/app/src/main/res/menu/activity_home_drawer.xml" value="0.11302083333333333" />
       </map>

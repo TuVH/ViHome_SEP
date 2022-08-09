@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.layout);
         viewGroup = (ViewGroup) ((ViewGroup) this
                 .findViewById(android.R.id.content)).getChildAt(0);
 
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void userLogin(String userLogIn) {
         username = userLogIn;
-        Query query = mUserData.child("Unit Reader").orderByChild("username").equalTo(username);
+        Query query = mUserData.child("Host").orderByChild("username").equalTo(username);
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void customerLogin(String userLogIn) {
         username = userLogIn;
-        Query query = mUserData.child("Customer").orderByChild("username").equalTo(username);
+        Query query = mUserData.child("Renter").orderByChild("username").equalTo(username);
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

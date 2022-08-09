@@ -16,7 +16,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="#046110"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
@@ -24,9 +24,9 @@
     <FrameLayout
         android:id="@+id/customer_fragment"
         android:layout_width="match_parent"
-        android:layout_below="@id/app_bar"
         android:layout_height="match_parent"
-        android:background="@drawable/background"/>
+        android:layout_below="@id/app_bar"
+        android:background="@drawable/background_gradient" />
 
     <!--<android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
