@@ -39,7 +39,7 @@ public class TransactionActivity extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         mainView = inflater.inflate(R.layout.activity_transaction, container, false);
 
-        ((CustomerActivity) getActivity()).setActionBarTitle("Bill Details");
+        ((CustomerActivity) getActivity()).setActionBarTitle("Chi tiết hóa đơn");
         mCustomer = ((CustomerActivity) getActivity()).getCustomer();
 
         recyclerView = mainView.findViewById(R.id.transactionRecyclerView);
@@ -62,6 +62,7 @@ public class TransactionActivity extends Fragment {
                                 Iterable<DataSnapshot> dataSnapshots =  snapshot.getChildren();
                                 for (DataSnapshot t: dataSnapshots) {
                                     AddBill addBill = t.getValue(AddBill.class);
+                                    addBill.month = t.getKey();
                                     if (addBill != null){
                                         billList.add(addBill);
                                     }

@@ -11,6 +11,7 @@ public class AddBill {
     public int electric_amount;
     public int home_amount;
     public String status;
+    public String month;
 
     AddBill(){}
 

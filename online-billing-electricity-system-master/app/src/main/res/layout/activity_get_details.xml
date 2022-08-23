@@ -174,7 +174,7 @@
                             android:layout_height="33dp"
                             android:layout_margin="10dp"
                             android:layout_weight="1"
-                            android:background="@drawable/background_gradient"
+                            android:background="@drawable/button_background"
                             android:minHeight="40dp"
                             android:text="Chi tiết" />
 
