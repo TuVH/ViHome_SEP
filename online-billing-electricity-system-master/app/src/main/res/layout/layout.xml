@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/background"
+    android:id="@+id/main_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -38,18 +39,21 @@
 <!--        android:textStyle="bold" />-->
 
     <EditText
+        android:id="@+id/login_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/login_username"
         android:layout_below="@+id/imageView"
-        android:hint="Tài khoản"
-        android:textColor="@color/colorWhite"
-        android:textColorHint="@color/colorWhite"
-        android:layout_margin="10dp"
-        android:padding="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
         android:background="#30ffffff"
         android:drawableLeft="@drawable/ic_username"
-        android:drawablePadding="20dp" />
+        android:drawablePadding="20dp"
+        android:hint="Tài khoản"
+        android:padding="20dp"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -67,11 +71,15 @@
 
     <Button
         android:id="@+id/log_in"
-        android:layout_width="wrap_content"
+        android:layout_width="143dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_password"
+        android:textSize="18dp"
         android:layout_centerHorizontal="true"
-        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/button_background"
         android:text="Đăng nhập"
         android:textColor="@color/colorWhite" />
@@ -109,7 +117,7 @@
         android:layout_width="417dp"
         android:layout_height="137dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="1dp"
+        android:layout_marginBottom="3dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.517"

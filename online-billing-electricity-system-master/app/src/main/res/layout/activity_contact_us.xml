@@ -22,6 +22,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
                 android:enabled="false"
+                android:textColor="@color/colorWhite"
                 android:hint="Email"
                 android:inputType="textEmailAddress" />
         </android.support.design.widget.TextInputLayout>
@@ -38,6 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="20dp"
+                android:textColor="@color/colorWhite"
                 android:hint="Chủ đề"
                 android:inputType="text" />
         </android.support.design.widget.TextInputLayout>
@@ -56,6 +58,7 @@
                 android:layout_marginRight="20dp"
                 android:gravity="top|left"
                 android:hint="Mô tả vấn đề"
+                android:textColor="@color/colorWhite"
                 android:inputType="textMultiLine"
                 android:lines="4" />
         </android.support.design.widget.TextInputLayout>
@@ -68,6 +71,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:background="@drawable/button_background"
+            android:textColor="@color/colorWhite"
             android:text="Xác nhận" />
     </RelativeLayout>
 </ScrollView>
