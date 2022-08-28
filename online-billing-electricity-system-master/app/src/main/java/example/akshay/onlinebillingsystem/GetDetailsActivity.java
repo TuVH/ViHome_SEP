@@ -118,7 +118,7 @@ public class GetDetailsActivity extends Fragment {
 
 
         getDetailButtonBill.setOnClickListener(view -> {
-            getFragmentManager().beginTransaction().replace(R.id.fragment_container,new GetBillActivity()).addToBackStack("tag").commit();
+            getFragmentManager().beginTransaction().replace(R.id.fragment_container,new ChangeBillActivity()).addToBackStack("tag").commit();
         });
 
 

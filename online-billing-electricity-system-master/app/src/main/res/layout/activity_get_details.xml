@@ -208,8 +208,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/button_background"
                         android:minHeight="40dp"
-                        android:text="Xác nhận"
-                        android:textColor="@color/colorWhite" />
+                        android:text="Đồng ý" />
 
                     <Button
                         android:id="@+id/reset_unit_data"
@@ -219,8 +218,7 @@
                         android:layout_weight="1"
                         android:background="@drawable/button_background"
                         android:minHeight="40dp"
-                        android:text="Nhập lại"
-                        android:textColor="@color/colorWhite" />
+                        android:text="Hủy bỏ" />
                 </LinearLayout>
 
             </LinearLayout>

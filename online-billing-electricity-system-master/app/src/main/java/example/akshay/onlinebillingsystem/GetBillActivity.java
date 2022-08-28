@@ -63,10 +63,10 @@ public class GetBillActivity extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try {
                     DataSnapshot user = dataSnapshot.child(unitReader.username);
-                    water_amount_old.setText(user.child("water_amount").getValue(String.class));
-                    water_amount_new.setText(user.child("water_amount_new").getValue(String.class));
-                    electric_amount_old.setText(user.child("electric_amount").getValue(String.class));
-                    electric_amount_new.setText(user.child("electric_amount_new").getValue(String.class));
+                    water_amount_old.setText(user.child("water_amount_new").getValue(String.class));
+                    water_amount_new.setText("");
+                    electric_amount_old.setText(user.child("electric_amount_new").getValue(String.class));
+                    electric_amount_new.setText("");
                     home_amount.setText(user.child("home_amount").getValue(String.class));
                 } catch (NullPointerException e) {
                 }

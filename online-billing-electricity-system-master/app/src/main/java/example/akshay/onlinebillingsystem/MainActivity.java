@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         password_ET = findViewById(R.id.login_password);
         forgot_TV = findViewById(R.id.forgot_password);
 
-        //getPreferences();
+//        getPreferences();
         sharedpreferences = getSharedPreferences(MYPREFERENCE, Context.MODE_PRIVATE);
 
         forgot_TV.setOnClickListener(new View.OnClickListener() {
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
             mDialog = ProgressDialog.show(MainActivity.this, "Chờ chút nha!", "Đăng nhập...", true);
 
             //Retrieve data of specific user
-            Query query = mUserData.child("Unit Reader").orderByChild("username").equalTo(username);
+            Query query = mUserData.child("Host").orderByChild("username").equalTo(username);
             query.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

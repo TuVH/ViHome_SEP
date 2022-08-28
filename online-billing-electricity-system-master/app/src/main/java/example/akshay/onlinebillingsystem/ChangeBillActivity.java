@@ -22,6 +22,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
+
 public class ChangeBillActivity extends Fragment {
 
     View mainView;
@@ -65,10 +67,21 @@ public class ChangeBillActivity extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 try {
                     DataSnapshot user = dataSnapshot.child(unitReader.username);
-                    water_amount_old.setText(user.child("water_amount").getValue(String.class));
-                    water_amount_new.setText(user.child("water_amount_new").getValue(String.class));
-                    electric_amount_old.setText(user.child("electric_amount").getValue(String.class));
-                    electric_amount_new.setText(user.child("electric_amount_new").getValue(String.class));
+                    String a = user.child("water_amount_new").getValue(String.class);
+                    String b = user.child("electric_amount_new").getValue(String.class);
+                    if(a == null)
+                    {
+                        water_amount_old.setText("0");
+                    }else {
+                        water_amount_old.setText(user.child("water_amount_new").getValue(String.class));
+                    }
+                    if (b == null){
+                        electric_amount_old.setText("0");
+                    }else{
+                        electric_amount_old.setText(user.child("electric_amount_new").getValue(String.class));
+                    }
+                    water_amount_new.setText("");
+                    electric_amount_new.setText("");
                     home_amount.setText(user.child("home_amount").getValue(String.class));
                 } catch (NullPointerException e) {
                 }
@@ -82,33 +95,29 @@ public class ChangeBillActivity extends Fragment {
 
 
         dataSubmit.setOnClickListener(view -> {
-            unitReader.electric_amount_new = electric_amount_new.getText().toString();
-            unitReader.electric_amount = electric_amount_old.getText().toString();
-            unitReader.water_amount = water_amount_old.getText().toString();
-            unitReader.water_amount_new = water_amount_new.getText().toString();
-            unitReader.home_amount = home_amount.getText().toString();
+                    unitReader.electric_amount_new = electric_amount_new.getText().toString();
+                    unitReader.electric_amount = electric_amount_old.getText().toString();
+                    unitReader.water_amount = water_amount_old.getText().toString();
+                    unitReader.water_amount_new = water_amount_new.getText().toString();
+                    unitReader.home_amount = home_amount.getText().toString();
 
-            mRef = database.getReference("Users/Host");
-            mRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    mRef.child(unitReader.username).setValue(unitReader).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                    mRef = database.getReference("Users/Host");
+                    mRef.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()){
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            mRef.child(unitReader.username).setValue(unitReader);
+                        }
 
-                            } else {
-                            }
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
                         }
                     });
 
-                }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
+
                 }
-            });
-        });
+        );
         return mainView;
     }
 }

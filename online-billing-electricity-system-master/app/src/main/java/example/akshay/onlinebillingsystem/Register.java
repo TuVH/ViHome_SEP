@@ -163,14 +163,14 @@ public class Register extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.hasChild(username)) {
-                    alertDialog("Alert","Username already exists.");
+                    alertDialog("Thông báo","Tài khoản đã tồn tại");
                 } else {
                     Customer customer = new Customer(name, email, username, password, mo_no,phoneNumber);
                     mRef.child(username).setValue(customer).addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             mDialog.dismiss();
-                            alertDialog("Congratulation","Registration Successful.");
+                            alertDialog("Thành Công","Đăng kí thành công.");
                         }
                     });
                 }
